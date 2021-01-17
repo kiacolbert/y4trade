@@ -21,7 +21,7 @@ const StockList = () => {
   const currentTheme = isLightTheme ? light : dark;
 
   return ( 
-    <div className='stock-list' style={{background: currentTheme.bg}}className='StockList'>
+    <div className='stock-list' style={{background: currentTheme.bg}}>
       
       <ThemeToggle />
       <StockForm addStock={addStock}/>

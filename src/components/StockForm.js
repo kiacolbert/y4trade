@@ -40,7 +40,7 @@ const StockForm = ({addStock}) => {
     <form className='stock-form' onSubmit={onSubmit}>
       <input className='stock-form' type='text' placeholder='ticker symbol' value={stockName}
       onChange={(e) => setStockName(e.target.value)}></input>
-      <input type='submit' value='get data' />
+      <input className='btn' type='submit' value='get data' />
     </form>
    );
 }
