@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
+import ThemeToggle from './ThemeToggle';
 import StockChart from './StockChart';
 import StockForm from './StockForm';
 
@@ -20,10 +21,12 @@ const StockList = () => {
   const currentTheme = isLightTheme ? light : dark;
 
   return ( 
-    <div style={{background: currentTheme.bg}}className='StockList'>
+    <div className='stock-list' style={{background: currentTheme.bg}}className='StockList'>
+      
+      <ThemeToggle />
       <StockForm addStock={addStock}/>
-      <h1 style={{color: currentTheme.content}}>Viewing: {displayName}</h1>
-      <h1>{stocks[displayName]}</h1>
+      <h1 className='stock-list' style={{color: currentTheme.content}}>Viewing: {displayName}</h1>
+      <h1 className='stock-list'>{stocks[displayName]}</h1>
       <StockChart metaData={metaData} timeSeries={timeSeries}/>
     </div>
    );

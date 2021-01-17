@@ -3,6 +3,7 @@ import Alpha from 'alphavantage';
 
 const StockForm = ({addStock}) => {
   const [stockName, setStockName] = useState('');
+  // needs error handling
   const onSubmit = (e) => {
     e.preventDefault();
     const alpha = Alpha({key: process.env.REACT_APP_ALPHAVANTAGE_KEY})
@@ -13,7 +14,6 @@ const StockForm = ({addStock}) => {
     });
     setStockName('');
   }
-  // maybe clean the data when you get it??
   const cleanData = (data) => {
     const META_DATA = 'Meta Data'
     const TIME_SERIES_1_MIN = 'Time Series (1min)'
@@ -50,10 +50,10 @@ const StockForm = ({addStock}) => {
   } 
 
   return ( 
-    <form onSubmit={onSubmit}>
-      <input type='text' placeholder='ticker symbol' value={stockName}
+    <form className='stock-form' onSubmit={onSubmit}>
+      <input className='stock-form' type='text' placeholder='ticker symbol' value={stockName}
       onChange={(e) => setStockName(e.target.value)}></input>
-      <input type='submit' value='get stock' />
+      <input type='submit' value='get data' />
     </form>
    );
 }
