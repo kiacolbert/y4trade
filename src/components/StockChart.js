@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Plot from 'react-plotly.js';
-import ThemeContext from '../context/ThemeContext';
+import { ThemeContext } from '../context/ThemeContext';
 
 const StockChart = (props) => {
 const{ date, close, high, low, open } = props.timeSeries;

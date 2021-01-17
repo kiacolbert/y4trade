@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import ThemeContext from '../context/ThemeContext';
+import { ThemeContext } from '../context/ThemeContext';
 import StockChart from './StockChart';
 import StockForm from './StockForm';
 
@@ -18,7 +18,7 @@ const StockList = () => {
 
   const { isLightTheme, light, dark } = useContext(ThemeContext);
   const currentTheme = isLightTheme ? light : dark;
-  
+
   return ( 
     <div style={{background: currentTheme.bg}}className='StockList'>
       <StockForm addStock={addStock}/>
