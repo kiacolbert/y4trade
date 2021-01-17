@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Plot from 'react-plotly.js';
+import ThemeContext from '../context/ThemeContext';
 
 const StockChart = (props) => {
 const{ date, close, high, low, open } = props.timeSeries;
-
+const { isLightTheme, light, dark } = useContext(ThemeContext);
+const theme = isLightTheme ? light : dark;
   return ( 
     <Plot data={[
       {
@@ -20,7 +22,15 @@ const{ date, close, high, low, open } = props.timeSeries;
         marker: {color: 'red'},
       }
     ]}
-    layout={ {width: 1000, height: 500, title: 'A Fancy Plot'} }>
+    layout={{
+      width: 1000, 
+      height: 500, 
+      title: props.metaData.Information,
+      paper_bgcolor: theme.bg,
+      plot_bgcolor: theme.bg,
+      xaxis: { color: theme.content },
+      yaxis: { color: theme.content },
+      }}>
   </Plot> 
   );
 }

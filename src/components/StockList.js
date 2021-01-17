@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
+import ThemeContext from '../context/ThemeContext';
 import StockChart from './StockChart';
 import StockForm from './StockForm';
 
@@ -15,10 +16,13 @@ const StockList = () => {
     setTimeSeries(data.timeSeries);
   }
 
+  const { isLightTheme, light, dark } = useContext(ThemeContext);
+  const currentTheme = isLightTheme ? light : dark;
+  
   return ( 
-    <div className='StockList'>
+    <div style={{background: currentTheme.bg}}className='StockList'>
       <StockForm addStock={addStock}/>
-      <h1>Viewing: {displayName}</h1>
+      <h1 style={{color: currentTheme.content}}>Viewing: {displayName}</h1>
       <h1>{stocks[displayName]}</h1>
       <StockChart metaData={metaData} timeSeries={timeSeries}/>
     </div>
