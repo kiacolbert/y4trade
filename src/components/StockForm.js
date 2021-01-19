@@ -7,7 +7,6 @@ const StockForm = ({addStock}) => {
     e.preventDefault();
     const alpha = Alpha({key: process.env.REACT_APP_ALPHAVANTAGE_KEY})
     alpha.data.intraday(stockName).then((data) => {
-      debugger;
       const cleaned = alpha.util.polish(data);
       let reOrged = reorganizeTimeSeries(cleaned.data);
       addStock({name:stockName, data:{ metaData: cleaned.meta, timeSeries: reOrged}});

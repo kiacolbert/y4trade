@@ -1,5 +1,6 @@
 import './App.css';
 import StockList from './components/StockList';
+import TradeInput from './components/TradeInput';
 import ThemeProvider from './context/ThemeContext';
 import logo from './images/logo.png';
 
@@ -10,6 +11,7 @@ function App() {
       <ThemeProvider>
           <StockList/>
       </ThemeProvider>
+      <TradeInput />
     </div>
   );
 }

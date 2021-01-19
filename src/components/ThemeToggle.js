@@ -2,8 +2,7 @@ import React, { useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
 
 const ThemeToggle = () => {
-  const { toggleTheme, isLightTheme } = useContext(ThemeContext);
-  let emoji = isLightTheme ? '🌙' : '☀️';
+  const { toggleTheme } = useContext(ThemeContext);
   return ( 
     <div  className='light-dark-toggle'>
       <input className='checkbox' type='checkbox' id='checkbox' onClick={toggleTheme} />
